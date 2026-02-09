@@ -48,8 +48,29 @@ metodos ->
 - **subList** : Es un método de la interfaz List que devuelve una vista de una parte de la lista original. Permite trabajar con una sección específica de la lista sin modificar la lista original. La sublista es dinámica, lo que significa que los cambios realizados en la sublista se reflejan en la lista original y viceversa.
 - **ListOf** : Es un método estático introducido en Java 9 que permite crear una lista inmutable a partir de un número variable de elementos. La lista creada con List.of es inmutable, lo que significa que no se pueden agregar, eliminar o modificar elementos después de su creación. Es útil para crear listas de manera concisa y segura cuando no se requiere mutabilidad.
 
-# Clase-7 : 🗂️🗂️ Creacion de ArrayList y adicion de elementos-  📚
+# Clase-8 : 🗂️🗂️ Creacion de ArrayList y adicion de elementos-  📚
 https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html#method-summary
+
+```text
+Sí, la clase ArrayList implementa la interfaz List en Java. Esto significa que ArrayList hereda todos los métodos definidos en la interfaz List, como add, remove, get, size, etc.
+En tu archivo C_08_ArrayList1.java, cuando declaras:
+List<String> listaColores = new ArrayList<>();
+Estás usando la interfaz List como tipo de referencia, y ArrayList como la implementación concreta. Esto es una buena práctica porque permite cambiar fácilmente la implementación (por ejemplo, a LinkedList) sin modificar el resto del código.
+¿Quieres que agregue un comentario explicativo en tu archivo para aclarar este punto, o necesitas ejemplos de métodos de la interfaz List usados con ArrayList?
+```
+
+# Clase-9 : 🗂️🗂️ METODO DE INTERACION EN LAS LISTAS-  📚
+
+# ¿ que es el metodo Iterator?
+rpta : El método `iterator()` es un método definido en la interfaz Collection que devuelve un objeto de tipo Iterator. 
+Un Iterator es una interfaz que proporciona métodos para recorrer los elementos de una colección de manera secuencial. 
+Permite acceder a los elementos de la colección sin exponer su estructura interna.
+
+https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Iterator.html
+
+https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ListIterator.html
+
+![img](../img/img_01.png)
 
 
 
