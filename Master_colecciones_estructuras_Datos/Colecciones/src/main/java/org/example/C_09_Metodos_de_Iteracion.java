@@ -10,10 +10,6 @@ public class C_09_Metodos_de_Iteracion {
         //creacion de ArrayList
         List<String> listaColores = new ArrayList<>();
 
-        //Creacion mediante la clase Arrays
-        String[] nombres = {"Arturo", "Daniel", "Javier", "Gustavo", "Pamela"};
-        List<String> listaNombres = Arrays.asList(nombres);
-
         //adicion de elemento individuales
         listaColores.add("Rojo");
         listaColores.add("Amarillo");
@@ -49,12 +45,12 @@ public class C_09_Metodos_de_Iteracion {
 
         //solucion 1 crear otro objeto iterador
         ListIterator<String> iterador2 = listaColores.listIterator();
-        System.out.println("\n\nLista despues de eliminar Amarillo :");
+        System.out.println("\n\nLista despues de eliminar Amarillo solucion 1:");
         while (iterador2.hasNext()) {
             System.out.println("Color:" + iterador2.next());
         }
 
-        System.out.println("\n\nLista despues de eliminar Amarillo Solucion2 :");
+        System.out.println("\n\nLista despues de eliminar Amarillo Solucion 2:");
         //solucion 2 crear otro objeto iterador y un for
         for (ListIterator<String> iter = listaColores.listIterator(); iter.hasNext(); ) {
             System.out.println("Color : " + iter.next());
