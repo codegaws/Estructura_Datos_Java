@@ -13,7 +13,6 @@ public class C_05_ColeccionesGenericos {
         Collection<Persona> names = new ArrayList<>();
         //names.add("george"); esta mal
         names.add(new Persona("George"));
-
         Queue<String> name2 = new LinkedList<>();//lista enlazada, cola sencilla, FIFO, no se puede acceder a un elemento específico, solo al primero o al último
     }
 

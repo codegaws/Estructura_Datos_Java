@@ -9,14 +9,14 @@ public class C_08_ArrayList1 {
         //creacion de ArrayList
         List<String> listaColores = new ArrayList<>();
 
-        //Creacion mediante la clase Arrays
-        String[] nombres = {"Arturo", "Daniel", "Javier", "Gustavo", "Pamela"};
-        List<String> listaNombres = Arrays.asList(nombres);
-
         //adicion de elemento individuales
         listaColores.add("Rojo");
         listaColores.add("Verde");
         listaColores.add("Azul");
+
+        //Creacion mediante la clase Arrays
+        String[] nombres = {"Arturo", "Daniel", "Javier", "Gustavo", "Pamela"};
+        List<String> listaNombres = Arrays.asList(nombres);
 
         //Construir lista a partir de otra lista
         List<String> elementos = new ArrayList<>(listaColores);
