@@ -1436,3 +1436,193 @@ Total de tareas: 3
 - [Documentación Oracle - LinkedList](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/LinkedList.html)
 - [Documentación Oracle - Deque](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Deque.html)
 - [Documentación Oracle - Queue](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Queue.html)
+
+---
+
+# Clase-12 : 🗂️🗂️ TIPOS LISTA ENLAZADA-  📚
+## 🔗 Listas Enlazadas en Java
+
+---
+
+## 📌 1. Lista Simplemente Enlazada (Singly Linked List)
+
+| Campo | Detalle |
+|-------|---------|
+| 🧩 **¿Qué es?** | Cada nodo apunta **solo al siguiente**. El último apunta a `null`. |
+| 🎯 **¿Para qué sirve?** | Almacenar datos secuenciales con inserción/eliminación eficiente. |
+| ⚙️ **Uso común** | Pilas, colas simples, historial de acciones. |
+| 🛠️ **Funciones clave** | `insertar()`, `eliminar()`, `buscar()`, `imprimir()` |
+
+```java
+class Nodo {
+    int dato;
+    Nodo siguiente;
+
+    Nodo(int dato) {
+        this.dato = dato;
+        this.siguiente = null;
+    }
+}
+
+// Uso
+Nodo n1 = new Nodo(1);
+Nodo n2 = new Nodo(2);
+Nodo n3 = new Nodo(3);
+
+n1.siguiente = n2;
+n2.siguiente = n3;
+// 1 → 2 → 3 → null
+```
+
+---
+
+## 🔄 2. Lista Doblemente Enlazada (Doubly Linked List)
+
+
+| Campo | Detalle |
+|-------|---------|
+| 🧩 **¿Qué es?** | Cada nodo tiene puntero al **siguiente Y al anterior**. |
+| 🎯 **¿Para qué sirve?** | Recorrer en ambas direcciones sin perder referencia. |
+| ⚙️ **Uso común** | Historial atrás/adelante del navegador, reproductores de música. |
+| 🛠️ **Funciones clave** | `insertarFrente()`, `insertarFinal()`, `eliminar()`, `invertir()` |
+
+```java
+class Nodo {
+    int dato;
+    Nodo anterior;
+    Nodo siguiente;
+
+    Nodo(int dato) {
+        this.dato = dato;
+        this.anterior = null;
+        this.siguiente = null;
+    }
+}
+
+// Uso
+Nodo n1 = new Nodo(1);
+Nodo n2 = new Nodo(2);
+
+n1.siguiente = n2;
+n2.anterior = n1;
+// null ← 1 ↔ 2 → null
+```
+
+---
+
+## ⭕ 3. Lista Circular Simple (Circular Singly Linked List)
+
+| Campo | Detalle |
+|-------|---------|
+| 🧩 **¿Qué es?** | Como la simple, pero el **último nodo apunta al primero**. |
+| 🎯 **¿Para qué sirve?** | Procesos que se repiten indefinidamente en orden. |
+| ⚙️ **Uso común** | Turnos en juegos, Round Robin de CPU, carruseles. |
+| 🛠️ **Funciones clave** | `insertar()`, `eliminar()`, `recorrer()` (con condición de parada) |
+
+```java
+class Nodo {
+    int dato;
+    Nodo siguiente;
+
+    Nodo(int dato) {
+        this.dato = dato;
+        this.siguiente = null;
+    }
+}
+
+// Uso
+Nodo n1 = new Nodo(1);
+Nodo n2 = new Nodo(2);
+Nodo n3 = new Nodo(3);
+
+n1.siguiente = n2;
+n2.siguiente = n3;
+n3.siguiente = n1; // ⭕ Cierra el círculo
+// 1 → 2 → 3 → (vuelve a 1)
+```
+
+---
+
+## 🔁 4. Lista Circular Doble (Circular Doubly Linked List)
+
+| Campo | Detalle |
+|-------|---------|
+| 🧩 **¿Qué es?** | Doble enlace **Y** circular: el último apunta al primero y viceversa. |
+| 🎯 **¿Para qué sirve?** | Máxima flexibilidad: recorrer en cualquier dirección y en ciclo. |
+| ⚙️ **Uso común** | Carruseles UI, buffers circulares, editores de texto. |
+| 🛠️ **Funciones clave** | `insertar()`, `eliminar()`, `avanzar()`, `retroceder()` |
+
+```java
+class Nodo {
+    int dato;
+    Nodo anterior;
+    Nodo siguiente;
+
+    Nodo(int dato) {
+        this.dato = dato;
+        this.anterior = null;
+        this.siguiente = null;
+    }
+}
+
+// Uso
+Nodo n1 = new Nodo(1);
+Nodo n2 = new Nodo(2);
+Nodo n3 = new Nodo(3);
+
+n1.siguiente = n2; n2.anterior = n1;
+n2.siguiente = n3; n3.anterior = n2;
+n3.siguiente = n1; // ⭕ Cierra hacia adelante
+n1.anterior = n3;  // ⭕ Cierra hacia atrás
+// ↩ 1 ↔ 2 ↔ 3 ↩
+```
+
+---
+
+## ☕ LinkedList en Java (Clase incorporada)
+
+> Java ya tiene una implementación lista para usar en `java.util.LinkedList` que funciona como **lista doblemente enlazada**.
+
+```java
+import java.util.LinkedList;
+
+public class Main {
+    public static void main(String[] args) {
+        LinkedList<Integer> lista = new LinkedList<>();
+
+        lista.add(10);          // Agrega al final
+        lista.addFirst(5);      // Agrega al inicio
+        lista.addLast(20);      // Agrega al final
+
+        lista.removeFirst();    // Elimina el primero
+        lista.removeLast();     // Elimina el último
+
+        System.out.println(lista.get(0));   // Accede por índice
+        System.out.println(lista.size());   // Tamaño de la lista
+        System.out.println(lista.contains(10)); // ¿Existe el elemento?
+
+        // Recorrer la lista
+        for (int elemento : lista) {
+            System.out.println(elemento);
+        }
+    }
+}
+```
+
+---
+
+## 📊 Comparativa Rápida
+
+| Tipo | Dirección | Circular | Memoria | Complejidad | En Java |
+|------|-----------|----------|---------|-------------|---------|
+| 🔹 Simple | ➡️ | ❌ | Baja | Baja | Manual |
+| 🔷 Doble | ↔️ | ❌ | Media | Media | `LinkedList<>` |
+| 🔸 Circular Simple | ➡️🔄 | ✅ | Baja | Media | Manual |
+| 🔶 Circular Doble | ↔️🔄 | ✅ | Alta | Alta | Manual |
+
+---
+
+> 💡 **Consejo Java:** Para la mayoría de casos del día a día, usa directamente `LinkedList<>` de Java. Implementa la versión manual solo cuando necesites control total o lo pida tu profesor. 🎓
+
+# Clase-13 : 🗂️🗂️ IMPLEMENTACION DE LISTA ENLAZADA SIMPLE-  📚
+

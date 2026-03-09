@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.LinkedList;
 
-public class c_11_Ejemplo_Lista_Enlazada_LinkedList {
+public class C_11_Ejemplo_Lista_Enlazada_LinkedList {
     public static void main(String[] args) {
         // LinkedList es perfecta para implementar colas
         LinkedList<String> colaJugadores = new LinkedList<>();
